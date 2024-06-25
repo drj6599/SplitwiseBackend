@@ -1,5 +1,6 @@
 package dev.dheeraj.splitwise.controller;
 
+import dev.dheeraj.splitwise.dto.UserAddFriendDto;
 import dev.dheeraj.splitwise.dto.UserRegistrationRequestDto;
 import dev.dheeraj.splitwise.entity.User;
 import dev.dheeraj.splitwise.exception.UserRegistrationInvalidData;
@@ -25,6 +26,18 @@ public class UserController {
         validateUserDetails(user);
         User savedUser = userService.signup(user.getName(), user.getEmail(), user.getPassword());
         return ResponseEntity.ok(EntityDTOManager.toDto(savedUser));
+    }
+
+    @PostMapping("/addFriend")
+    public ResponseEntity addFriend(@RequestBody UserAddFriendDto dto)
+    {
+        User user = userService.getById(dto.getUserId());
+        User friend = userService.getById(dto.getFriendId());
+        user.getFriends().add(friend);
+        friend.getFriends().add(user);
+        userService.saveUser(user);
+        userService.saveUser(friend);
+        return ResponseEntity.ok(EntityDTOManager.toDto(user));
     }
 
     private void validateUserDetails(UserRegistrationRequestDto user)

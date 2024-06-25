@@ -1,0 +1,18 @@
+APIs
+
+1) POST :- http://localhost:8080/signup
+
+{
+    "name" : "Dheeraj Talele",
+    "email" : "dheeraj_talele@gmail.com",
+    "password" : "Anya&Gojo12"
+}
+
+2) POST :- http://localhost:8080/addFriend
+
+{
+    "userId" : "52",
+    "friendId" : "102"
+}
+
+3)
