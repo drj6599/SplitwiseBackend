@@ -15,4 +15,9 @@ APIs
     "friendId" : "102"
 }
 
-3)
+3) POST :- http://localhost:8080/login
+
+{
+    "email" : "dheeraj_talele@gmail.com",
+    "password" : "Anya&Gojo12"
+}
