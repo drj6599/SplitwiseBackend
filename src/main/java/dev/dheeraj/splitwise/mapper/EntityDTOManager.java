@@ -1,8 +1,7 @@
 package dev.dheeraj.splitwise.mapper;
 
-import dev.dheeraj.splitwise.dto.UserFriendResponseDto;
-import dev.dheeraj.splitwise.dto.UserGroupResponseDto;
-import dev.dheeraj.splitwise.dto.UserLoginResponseDto;
+import dev.dheeraj.splitwise.dto.*;
+import dev.dheeraj.splitwise.entity.Expense;
 import dev.dheeraj.splitwise.entity.Group;
 import dev.dheeraj.splitwise.entity.User;
 
@@ -38,11 +37,20 @@ public class EntityDTOManager {
         return dto;
     }
 
-    public static UserGroupResponseDto toGroupDto(Group group){
-        UserGroupResponseDto dto = new UserGroupResponseDto();
-        dto.setId(group.getId());
+    public static GroupResponseDto toGroupDto(Group group){
+        GroupResponseDto dto = new GroupResponseDto();
         dto.setName(group.getName());
-        dto.setNumberOfMembers(group.getMembers().size());
+        dto.setTotalAmountSpent(group.getTotalAmountSpent());
+        dto.setExpenses(group.getExpenses());
+        dto.setMembers(group.getMembers());
+        return dto;
+    }
+
+    public static ExpenseResponseDto toExpenseResponseDto(Expense expense) {
+        ExpenseResponseDto dto = new ExpenseResponseDto();
+        dto.setAmount(expense.getAmount());
+        dto.setExpenseTime(expense.getExpenseTime());
+        dto.setDescription(expense.getDescription());
         return dto;
     }
 }

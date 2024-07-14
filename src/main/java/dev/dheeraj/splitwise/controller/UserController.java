@@ -6,7 +6,7 @@ import dev.dheeraj.splitwise.dto.UserRegistrationRequestDto;
 import dev.dheeraj.splitwise.entity.User;
 import dev.dheeraj.splitwise.exception.UserRegistrationInvalidData;
 import dev.dheeraj.splitwise.mapper.EntityDTOManager;
-import dev.dheeraj.splitwise.service.UserService;
+import dev.dheeraj.splitwise.service.UserService.UserService;
 import dev.dheeraj.splitwise.validation.EmailValidator;
 import dev.dheeraj.splitwise.validation.PasswordValidator;
 import org.springframework.beans.factory.annotation.Autowired;
